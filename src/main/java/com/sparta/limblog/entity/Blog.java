@@ -24,7 +24,7 @@ public class Blog extends Timestamped{
     private String author;
     //비밀번호
     @Column(nullable = false)
-    private int password;
+    private String password;
 
     public Blog(BlogRequestDto requestDto) {
         this.title = requestDto.getTitle();
@@ -38,6 +38,7 @@ public class Blog extends Timestamped{
         this.contents = requestDto.getContents();
         this.author = requestDto.getAuthor();
     }
+
 
 
 }
