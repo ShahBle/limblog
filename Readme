@@ -1,3 +1,6 @@
+<유저케이스 및 API명세서 노션링크>
+    https://www.notion.so/Blog-67a2a9af8181410cbb761d7f24c22f5c
+
 1. 아래의 요구사항을 기반으로 Use Case 그려보기
     - 손으로 그려도 됩니다.
     - cf. [https://narup.tistory.com/70](https://narup.tistory.com/70)
@@ -16,3 +19,4 @@
 6. 선택한 게시글 삭제 API
     - 삭제를 요청할 때 비밀번호를 같이 보내서 서버에서 비밀번호 일치 여부를 확인 한 후
     - 선택한 게시글을 삭제하고 Client 로 성공했다는 표시 반환하기
+    
