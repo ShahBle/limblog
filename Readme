@@ -1,9 +1,9 @@
 <유저케이스 및 API명세서 노션링크>
     https://www.notion.so/Blog-67a2a9af8181410cbb761d7f24c22f5c
 
+-요구사항-
 1. 아래의 요구사항을 기반으로 Use Case 그려보기
     - 손으로 그려도 됩니다.
-    - cf. [https://narup.tistory.com/70](https://narup.tistory.com/70)
 2. 전체 게시글 목록 조회 API
     - 제목, 작성자명, 작성 내용, 작성 날짜를 조회하기
     - 작성 날짜 기준 내림차순으로 정렬하기
