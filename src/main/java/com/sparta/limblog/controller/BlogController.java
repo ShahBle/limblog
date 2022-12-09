@@ -1,7 +1,6 @@
 package com.sparta.limblog.controller;
 
 import com.sparta.limblog.dto.BlogRequestDto;
-import com.sparta.limblog.dto.PostPasswordDto;
 import com.sparta.limblog.dto.PostResponseDto;
 import com.sparta.limblog.entity.Blog;
 import com.sparta.limblog.service.BlogService;
@@ -15,37 +14,31 @@ import java.util.List;
 public class BlogController {
 
     private final BlogService blogService;
-
+    //게시글 작성
     @PostMapping("/api/post")
     public Blog createWritePost(@RequestBody BlogRequestDto requestDto ){
-        return blogService.createWritePost(requestDto);
+       return blogService.createWritePost(requestDto);
     }
-
+    //게시글 전체 조회
     @GetMapping("/api/posts")
-    public List<Blog> showAll(){
+    public List<PostResponseDto> showAll(){
         return blogService.showAll();
     }
-
+    //선택 게시글 조회
     @GetMapping("/api/post/{id}")
     public PostResponseDto showPost(@PathVariable Long id){
         return blogService.findById(id);
     }
-
+    //게시글 수정
     @PutMapping("/api/post/{id}")
     public String updatePost(@PathVariable Long id, @RequestBody BlogRequestDto requestDto
                       ,@RequestParam("password") String password){
         return blogService.update(id,requestDto,password);
     }
-
+    //게시글 삭제
     @DeleteMapping("/api/post/{id}")
-    public String deletePost(@RequestParam("id") Long id, @RequestParam("password") String password){
-        blogService.deletePost(id,password);
-        return String.valueOf(id) + "번 글이 삭제되었습니다";
-    }
-
-    @PostMapping("/api/posts/{id}")
-    public boolean comparePassword(@PathVariable Long id, @RequestBody PostPasswordDto postPasswordDto){
-        return blogService.comparePassword(id, postPasswordDto);
+    public boolean deletePost(@PathVariable Long id, @RequestParam("password") String password){
+        return blogService.deletePost(id,password);
     }
 
 }
