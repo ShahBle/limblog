@@ -14,6 +14,12 @@ import jakarta.persistence.MappedSuperclass;
 @EntityListeners(AuditingEntityListener.class)
 public class Timestamped {
 
+//    @ApiModelProperty(value = "생성일시")
+//    private String crtAt;
+//
+//    @ApiModelProperty(value ="최종변경일시")
+//    private String lstChgAt;
+
     @CreatedDate
     private LocalDateTime createdAt;
 

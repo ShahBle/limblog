@@ -37,7 +37,7 @@ public class BlogController {
     }
     //게시글 삭제
     @DeleteMapping("/api/post/{id}")
-    public boolean deletePost(@PathVariable Long id, @RequestParam("password") String password){
+    public String  deletePost(@PathVariable Long id, @RequestParam("password") String password){
         return blogService.deletePost(id,password);
     }
 

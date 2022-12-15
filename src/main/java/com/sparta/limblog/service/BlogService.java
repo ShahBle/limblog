@@ -56,15 +56,33 @@ public class BlogService {
         return "비밀번호가 틀렸습니다";
     }
 
+    // ====== 삭제기능에서 true, false값을 출력할려면 밑 boolean문 사용하기===================================
+    // ====== 명세서에선 "success": true를 보여주기 위해 Sting 사용(삭제된지 안된지도 구분하기 쉽게 메세지 작성=====
     @Transactional
-    public boolean deletePost(Long id, String password){
+    public String deletePost(Long id, String password){
         Blog blog = blogRepository.findById(id).orElseThrow(
                 ()-> new IllegalArgumentException("아이디가 존재하지 않습니다")
         );
+        String msg;
         if(password.equals(blog.getPassword())){
             blogRepository.deleteById(id);
-            return true;
+            return msg = "삭제 완료 (pwd success: true)";
         }
-        return false;
+        return msg = "비밀번호가 틀렸습니다 (pwd success: false)";
     }
+    //====== boolean deletePost문=================
+//    @Transactional
+//    public boolean deletePost(Long id, String password){
+//        Blog blog = blogRepository.findById(id).orElseThrow(
+//                ()-> new IllegalArgumentException("아이디가 존재하지 않습니다")
+//        );
+//        String msg;
+//        if(password.equals(blog.getPassword())){
+//            blogRepository.deleteById(id);
+//            return true;
+//        }
+//        return false;
+//    }
+
+
 }
