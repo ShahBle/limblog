@@ -26,12 +26,24 @@ public class Blog extends Timestamped{
     @Column(nullable = false)
     private String password;
 
+//    @Column(nullable = false)
+//    private Long userId;
+
     public Blog(BlogRequestDto requestDto) {
         this.title = requestDto.getTitle();
         this.contents = requestDto.getContents();
         this.author = requestDto.getAuthor();
         this.password = requestDto.getPassword();
+//        this.userId = userId;
     }
+
+
+//    public Blog(BlogRequestDto requestDto) {
+//        this.title = requestDto.getTitle();
+//        this.contents = requestDto.getContents();
+//        this.author = requestDto.getAuthor();
+//        this.password = requestDto.getPassword();
+//    }
 
     public void update(BlogRequestDto requestDto) {
         this.title = requestDto.getTitle();
