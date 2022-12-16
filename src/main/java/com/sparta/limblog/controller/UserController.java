@@ -28,7 +28,7 @@ public class UserController {
 
     //회원가입
     @PostMapping("/signup")
-
+    @ResponseBody
     public String signup(@RequestBody SignupRequestDto signupRequestDto) {
         return userService.signup(signupRequestDto);
 //        return "회원가입 성공";
