@@ -4,6 +4,7 @@ import com.sparta.limblog.dto.BlogRequestDto;
 import com.sparta.limblog.dto.PostResponseDto;
 import com.sparta.limblog.entity.Blog;
 import com.sparta.limblog.service.BlogService;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,9 +17,13 @@ public class BlogController {
     private final BlogService blogService;
     //게시글 작성
     @PostMapping("/api/post")
-    public Blog createWritePost(@RequestBody BlogRequestDto requestDto ){
-       return blogService.createWritePost(requestDto);
+    public Blog createWritePost(@RequestBody BlogRequestDto requestDto, HttpServletRequest request){
+       return blogService.createWritePost(requestDto,request);
     }
+//    @PostMapping("/api/post")
+//    public Blog createWritePost(@RequestBody BlogRequestDto requestDto ){
+//        return blogService.createWritePost(requestDto);
+//    }
     //게시글 전체 조회
     @GetMapping("/api/posts")
     public List<PostResponseDto> showAll(){
