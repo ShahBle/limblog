@@ -1,6 +1,7 @@
 package com.sparta.limblog.dto;
 
 import com.sparta.limblog.entity.Blog;
+import com.sparta.limblog.entity.User;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,7 +14,8 @@ public class PostResponseDto {
     private LocalDateTime modifiedAt;;
     private String title;
     private String content;
-    private String author;
+
+//    private String username;
 
 
 
@@ -22,6 +24,6 @@ public class PostResponseDto {
         this.modifiedAt = entity.getModifiedAt();
         this.title = entity.getTitle();
         this.content = entity.getContents();
-        this.author = entity.getAuthor();
+//        this.username = entity.getUsername();
     }
 }
