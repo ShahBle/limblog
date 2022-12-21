@@ -5,9 +5,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class BlogRequestDto {
+public class BlogRequestDto extends SignupRequestDto {
     private String title;
     private String contents;
-    private String author;
-    private String password;
+    private String username;
+//    private String author;
+//    private String password;
 }

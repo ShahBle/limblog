@@ -2,6 +2,7 @@ package com.sparta.limblog.entity;
 
 import com.sparta.limblog.dto.BlogRequestDto;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -19,38 +20,42 @@ public class Blog extends Timestamped{
     //작성 내용
     @Column(nullable = false)
     private String contents;
+
     //작성자명
-    @Column(nullable = false)
-    private String author;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id",nullable = false)
+    private User user;
+
+
     //비밀번호
-    @Column(nullable = false)
-    private String password;
+//    @Column(nullable = false)
+//    private String password;
+
+
 
 //    @Column(nullable = false)
 //    private Long userId;
 
-    public Blog(BlogRequestDto requestDto) {
-        this.title = requestDto.getTitle();
-        this.contents = requestDto.getContents();
-        this.author = requestDto.getAuthor();
-        this.password = requestDto.getPassword();
+    @Builder
+    public Blog(String title, String contents, User user) {
+        this.title = title;
+        this.contents = contents;
+        this.user = user;
+//        this.username = signupRequestDto.getUsername();
+//        this.author = requestDto.getAuthor();
+//        this.password = requestDto.getPassword();
 //        this.userId = userId;
     }
 
 
-//    public Blog(BlogRequestDto requestDto) {
-//        this.title = requestDto.getTitle();
-//        this.contents = requestDto.getContents();
+    public void update(String title, String contents) {
+        this.title = title;
+        this.contents = contents;
 //        this.author = requestDto.getAuthor();
-//        this.password = requestDto.getPassword();
-//    }
-
-    public void update(BlogRequestDto requestDto) {
-        this.title = requestDto.getTitle();
-        this.contents = requestDto.getContents();
-        this.author = requestDto.getAuthor();
     }
 
-
+    public boolean isEqualId(Long id) {
+        return this.user.getId().equals(id);
+    }
 
 }
